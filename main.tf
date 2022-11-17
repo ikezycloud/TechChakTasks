@@ -115,7 +115,7 @@ resource "aws_instance" "diverso1_node" {
   instance_type          = "t2.micro"
   ami                    = data.aws_ami.server_ami.id
   key_name               = aws_key_pair.diverso_key.id
-  vpc_security_group_ids = [aws_security_group.diverso_sg.id]
+  vpc_security_group_ids = ["${aws_security_group.diverso_sg.id}"]
   subnet_id              = aws_subnet.diverso_Public_subnet.id
   user_data              = file("userData.sh")
 
